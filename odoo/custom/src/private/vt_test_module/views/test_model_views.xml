@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_vt_test_tree" model="ir.ui.view">
+        <field name="name">vt.test.tree</field>
+        <field name="model">vt.test</field>
+        <field name="arch" type="xml">
+            <tree string="Tests">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vt_test_form" model="ir.ui.view">
+        <field name="name">vt.test.form</field>
+        <field name="model">vt.test</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the vt.test list view -->
+    <record id="action_test_model" model="ir.actions.act_window">
+        <field name="name">Test Models</field>
+        <field name="res_model">vt.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu item that triggers the action -->
+    <menuitem
+        id="menu_test_model_root"
+        name="Test Module"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_test_model"
+        name="Test Models"
+        parent="menu_test_model_root"
+        action="action_test_model"
+        sequence="10"/>
+
+</odoo>
